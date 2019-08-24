@@ -1,16 +1,16 @@
 # QitzSteinDBForUnity とは？
 
-GoogleSpreadSheetをデータベースがわりに使用できる
-「Stein」
+GoogleSpreadSheetをデータベースがわりに使用できる<br>
+「Stein」<br>
 https://steinhq.com/
-のUnity向けのラッパーです。
-パフォーマンスは出なさげですが、個人開発でちょっとしたDBを簡単に入れたいときや、
-アプリのモックやアルファ版などでStubのDBを入れておきたい時などに役立つかなと思います！
-（ちゃんとFactoryパターンをかませてあるので本番DBにも容易に差し替えられるような構造で組んでありますよ〜〜〜〜）
+<br>のUnity向けのラッパーです。<br>
+パフォーマンスは出なさげですが、個人開発でちょっとしたDBを簡単に入れたいときや、<br>
+アプリのモックやアルファ版などでStubのDBを入れておきたい時などに役立つかなと思います！<br>
+（ちゃんとFactoryパターンをかませてあるので本番DBにも容易に差し替えられるような構造で組んでありますよ〜〜〜〜）<br>
 
 # 導入方法
 
-##まずはGoogleSpreadSheetを作成！
+## まずはGoogleSpreadSheetを作成！
 
 とにもかくにもシートを作成します！
 カラムはこんな感じにしときます！
@@ -18,7 +18,7 @@ https://steinhq.com/
 <br>
 **idのカラム必須です。**
 
-##Steinのアカウントを作ります。
+## Steinのアカウントを作ります。
 
 ![アカウント](https://i.gyazo.com/e4d6a95b15cc31b1abb7d39616684b48.png "アカウント")<br>
 アカウント作成を選択<br>
@@ -28,7 +28,7 @@ https://steinhq.com/
 
 これで利用準備ができました！！！超簡単！<br>
 
-##パッケージのインスコ
+## パッケージのインスコ
 
 Archives中の以下パッケージから導入が可能です！<br>
 https://github.com/QitzPub/QitzSteinDB/raw/master/Archives/QitzSteinDBPlugin.unitypackage
