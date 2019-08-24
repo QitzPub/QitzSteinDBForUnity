@@ -87,7 +87,7 @@ IDB<T> Create<T>(string steinhqApiUrl, string targetSheetName) where T : AEntity
 string steinhqApiUrlにはapiのurlをいれます。<br>
 ![インスコ図](https://i.gyazo.com/58e004f245abf906250bf1bb52b28404.png "インスコ")<br>
 <br>
-string targetSheetNameにはapiのurlをいれます。<br>
+string targetSheetNameにはGoogleシートのシート名をいれます。<br>
 ![インスコ図](https://i.gyazo.com/58e004f245abf906250bf1bb52b28404.png "インスコ")<br>
 <br>
 
@@ -98,6 +98,13 @@ IDB<StubData> db = SteinhqDBFactory.Create<StubData>("https://api.steinhq.com/v1
 
 ### SteinhqDBからデータを取得するテスト
 
+#### 構造
+```C#
+IEnumerator GetData(Action<List<T>> callBack);
+```
+ジェネリックで指定した型で値が取得できます！
+
+#### 使い方例
 ```C#
         public IEnumerator SteinhqDBからデータを取得するテスト()
         {
@@ -116,6 +123,13 @@ IDB<StubData> db = SteinhqDBFactory.Create<StubData>("https://api.steinhq.com/v1
 
 ### SteinhqDBにダミーデータをPostするテスト
 
+#### 構造
+```C#
+IEnumerator AddData(T addData,Action<string> response);
+```
+ジェネリックで指定した型でDBにレコードを追加できます。
+
+#### 使い方例
 ```C#
         public IEnumerator SteinhqDBにダミーデータをPostするテスト()
         {
@@ -131,6 +145,13 @@ IDB<StubData> db = SteinhqDBFactory.Create<StubData>("https://api.steinhq.com/v1
 
 ### SteinhqDBのデータを上書き更新するテスト
 
+#### 構造
+```C#
+IEnumerator UpdateData(string id,T upDateData, Action<string> response);
+```
+idで指定したレコードを書き換えます。
+
+#### 使い方例
 ```C#
         public IEnumerator SteinhqDBのデータを上書き更新するテスト()
         {
@@ -147,6 +168,14 @@ IDB<StubData> db = SteinhqDBFactory.Create<StubData>("https://api.steinhq.com/v1
 
 ### SteinhqDBの指定データを消去する
 
+#### 構造
+```C#
+IEnumerator DeleatData(string id, Action<string> response);
+```
+idで指定したレコードを消去できます。
+
+
+#### 使い方例
 ```C#
         public IEnumerator SteinhqDBの指定データを消去する()
         {
