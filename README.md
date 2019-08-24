@@ -76,6 +76,26 @@ using Qitz.SteinhqDB;
 
 ##  実際の読み込み方法例
 
+
+### インスタンス作成
+
+#### 構造
+```C#
+IDB<T> Create<T>(string steinhqApiUrl, string targetSheetName) where T : AEntity
+```
+
+string steinhqApiUrlにはapiのurlをいれます。<br>
+![インスコ図](https://i.gyazo.com/58e004f245abf906250bf1bb52b28404.png "インスコ")<br>
+<br>
+string targetSheetNameにはapiのurlをいれます。<br>
+![インスコ図](https://i.gyazo.com/58e004f245abf906250bf1bb52b28404.png "インスコ")<br>
+<br>
+
+#### 使い方例
+```C#
+IDB<StubData> db = SteinhqDBFactory.Create<StubData>("https://api.steinhq.com/v1/storages/5d6093ecbb4eaf04c5eaa2b5", "test_data");
+```
+
 ### SteinhqDBからデータを取得するテスト
 
 ```C#
