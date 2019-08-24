@@ -1,0 +1,16 @@
+﻿<Properties StartupConfiguration="{DD74A04D-3AAC-75FE-90A5-12072585F0B4}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/QitzSteinhqDB/Tests/SteinDBTests.cs">
+    <Files>
+      <File FileName="Assets/QitzSteinhqDB/Scripts/SteinhqDB.cs" Line="8" Column="11" />
+      <File FileName="Assets/QitzSteinhqDB/Tests/SteinDBTests.cs" Line="12" Column="9" NotebookId="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.QitzSteinhqDB PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
