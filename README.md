@@ -1,6 +1,7 @@
 # QitzSteinDBForUnity とは？
 
-GoogleSpreadSheetをデータベースがわりに使用できる<br>
+**GoogleSpreadSheetを**<br>
+データベースがわりに使用できる<br>
 「Stein」<br>
 https://steinhq.com/
 <br>のUnity向けのラッパーです。<br>
