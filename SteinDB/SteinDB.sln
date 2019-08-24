@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio for Mac
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests.csproj", "{D4EB53FB-5414-C4FB-12AE-F32DD687C040}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QitzSteinhqDB", "QitzSteinhqDB.csproj", "{4E88B8BB-EC0B-1E98-A567-7760A5BC3369}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D4EB53FB-5414-C4FB-12AE-F32DD687C040}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4EB53FB-5414-C4FB-12AE-F32DD687C040}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4EB53FB-5414-C4FB-12AE-F32DD687C040}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4EB53FB-5414-C4FB-12AE-F32DD687C040}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E88B8BB-EC0B-1E98-A567-7760A5BC3369}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E88B8BB-EC0B-1E98-A567-7760A5BC3369}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E88B8BB-EC0B-1E98-A567-7760A5BC3369}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E88B8BB-EC0B-1E98-A567-7760A5BC3369}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
