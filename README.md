@@ -110,7 +110,7 @@ string targetSheetNameにはGoogleシートのシート名をいれます。<br>
 IDB<StubData> db = SteinDBFactory.Create<StubData>("https://api.steinhq.com/v1/storages/5d6093ecbb4eaf04c5eaa2b5", "test_data");
 ```
 
-### GoogleSpreadSheetからデータを取得するテスト
+### GoogleSpreadSheetからデータを取得する
 
 #### 構造
 ```C#
@@ -134,7 +134,7 @@ IEnumerator GetData(Action<List<T>> callBack);
         }
 ```
 
-### GoogleSpreadSheetにダミーデータをAddするテスト
+### GoogleSpreadSheetにデータをAddする
 
 #### 構造
 ```C#
