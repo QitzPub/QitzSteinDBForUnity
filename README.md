@@ -122,7 +122,7 @@ IEnumerator GetData(Action<List<T>> callBack);
 ```C#
         public IEnumerator GoogleSpreadSheetからデータを取得するテスト()
         {
-            IDB<StubData> db = SteinDBFactory.Create<StubData>("https://api.steinhq.com/v1/storages/5d6093ecbb4eaf04c5eaa2b5", "test_data");
+            var db = SteinDBFactory.Create<StubData>("https://api.steinhq.com/v1/storages/5d6093ecbb4eaf04c5eaa2b5", "test_data");
             yield return  db.GetData((data)=> {
                 foreach (var d in data)
                 {
@@ -146,7 +146,7 @@ IEnumerator AddData(T addData,Action<string> response);
 ```C#
         public IEnumerator GoogleSpreadSheetにダミーデータをPostするテスト()
         {
-            IDB<StubData> db = SteinDBFactory.Create<StubData>("https://api.steinhq.com/v1/storages/5d6093ecbb4eaf04c5eaa2b5", "test_data");
+            var db = SteinDBFactory.Create<StubData>("https://api.steinhq.com/v1/storages/5d6093ecbb4eaf04c5eaa2b5", "test_data");
             var testData = new StubData("1","zzzzsss","gggsasa");
             yield return db.AddData(testData,(response)=> {
                 Debug.Log(response);
@@ -167,7 +167,7 @@ idで指定したレコードを書き換えます。
 ```C#
         public IEnumerator GoogleSpreadSheetのデータを上書き更新するテスト()
         {
-            IDB<StubData> db = SteinDBFactory.Create<StubData>("https://api.steinhq.com/v1/storages/5d6093ecbb4eaf04c5eaa2b5", "test_data");
+            var db = SteinDBFactory.Create<StubData>("https://api.steinhq.com/v1/storages/5d6093ecbb4eaf04c5eaa2b5", "test_data");
             var testData = new StubData("1", "dsgsss", "ssfddddd");
             yield return db.UpdateData("1",testData, (response) => {
                 Debug.Log(response);
@@ -190,7 +190,7 @@ idで指定したレコードを消去できます。
 ```C#
         public IEnumerator GoogleSpreadSheetの指定データを消去する()
         {
-            IDB<StubData> db = SteinDBFactory.Create<StubData>("https://api.steinhq.com/v1/storages/5d6093ecbb4eaf04c5eaa2b5", "test_data");
+            var db = SteinDBFactory.Create<StubData>("https://api.steinhq.com/v1/storages/5d6093ecbb4eaf04c5eaa2b5", "test_data");
             yield return db.DeleatData("1", (response) => {
                 Debug.Log(response);
             });
