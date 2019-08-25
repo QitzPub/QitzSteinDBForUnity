@@ -41,13 +41,27 @@ https://github.com/QitzPub/QitzSteinDB/raw/master/Archives/QitzSteinDBPlugin.uni
 ##  使い方
 
 ```C#
-using Qitz.SteinhqDB;
+using Qitz.SteinDB;
 ```
 を入れます。
 
 ### DBからの受け口用のクラスを作成しておきます
 
 受け口用のクラスはAEntityを継承しておきます。<br>
+
+#### AEntity構造
+
+```C#
+    [Serializable]
+    public abstract class AEntity
+    {
+        [SerializeField]
+        protected string id;
+        public string ID => id;
+    }
+```
+
+
 また、　DBのカラム名と対応するフィールドに<br>
 [SerializeField]かpublicをつけておきます。<br>
 (idフィールドはAEntity中にあります)
@@ -57,11 +71,11 @@ using Qitz.SteinhqDB;
     {
         [SerializeField]
         string discription;
-        public string Discription { get { return discription; } }
+        public string Discription => discription;
 
         [SerializeField]
         string name;
-        public string Name { get { return name; } }
+        public string Name => name;
 
 
         public StubData(string id, string name, string discription)
@@ -81,22 +95,22 @@ using Qitz.SteinhqDB;
 
 #### 構造
 ```C#
-IDB<T> Create<T>(string steinhqApiUrl, string targetSheetName) where T : AEntity
+IDB<T> Create<T>(string steinApiUrl, string googleSpreadSheetName) where T : AEntity
 ```
 
 string steinhqApiUrlにはapiのurlをいれます。<br>
 ![インスコ図](https://i.gyazo.com/58e004f245abf906250bf1bb52b28404.png "インスコ")<br>
 <br>
 string targetSheetNameにはGoogleシートのシート名をいれます。<br>
-![インスコ図](https://i.gyazo.com/58e004f245abf906250bf1bb52b28404.png "インスコ")<br>
+![インスコ図](https://i.gyazo.com/ab2a1d70a9f2b7c49068dc229f13bbf6.png "インスコ")<br>
 <br>
 
 #### 使い方例
 ```C#
-IDB<StubData> db = SteinhqDBFactory.Create<StubData>("https://api.steinhq.com/v1/storages/5d6093ecbb4eaf04c5eaa2b5", "test_data");
+IDB<StubData> db = SteinDBFactory.Create<StubData>("https://api.steinhq.com/v1/storages/5d6093ecbb4eaf04c5eaa2b5", "test_data");
 ```
 
-### SteinhqDBからデータを取得するテスト
+### GoogleSpreadSheetからデータを取得するテスト
 
 #### 構造
 ```C#
@@ -106,9 +120,9 @@ IEnumerator GetData(Action<List<T>> callBack);
 
 #### 使い方例
 ```C#
-        public IEnumerator SteinhqDBからデータを取得するテスト()
+        public IEnumerator GoogleSpreadSheetからデータを取得するテスト()
         {
-            IDB<StubData> db = SteinhqDBFactory.Create<StubData>("https://api.steinhq.com/v1/storages/5d6093ecbb4eaf04c5eaa2b5", "test_data");
+            IDB<StubData> db = SteinDBFactory.Create<StubData>("https://api.steinhq.com/v1/storages/5d6093ecbb4eaf04c5eaa2b5", "test_data");
             yield return  db.GetData((data)=> {
                 foreach (var d in data)
                 {
@@ -117,11 +131,10 @@ IEnumerator GetData(Action<List<T>> callBack);
                 }
             });
 
-            yield return null;
         }
 ```
 
-### SteinhqDBにダミーデータをPostするテスト
+### GoogleSpreadSheetにダミーデータをAddするテスト
 
 #### 構造
 ```C#
@@ -131,19 +144,18 @@ IEnumerator AddData(T addData,Action<string> response);
 
 #### 使い方例
 ```C#
-        public IEnumerator SteinhqDBにダミーデータをPostするテスト()
+        public IEnumerator GoogleSpreadSheetにダミーデータをPostするテスト()
         {
-            IDB<StubData> db = SteinhqDBFactory.Create<StubData>("https://api.steinhq.com/v1/storages/5d6093ecbb4eaf04c5eaa2b5", "test_data");
+            IDB<StubData> db = SteinDBFactory.Create<StubData>("https://api.steinhq.com/v1/storages/5d6093ecbb4eaf04c5eaa2b5", "test_data");
             var testData = new StubData("1","zzzzsss","gggsasa");
             yield return db.AddData(testData,(response)=> {
                 Debug.Log(response);
             });
 
-            yield return null;
         }
 ```
 
-### SteinhqDBのデータを上書き更新するテスト
+### GoogleSpreadSheetのデータを上書き更新するテスト
 
 #### 構造
 ```C#
@@ -153,20 +165,19 @@ idで指定したレコードを書き換えます。
 
 #### 使い方例
 ```C#
-        public IEnumerator SteinhqDBのデータを上書き更新するテスト()
+        public IEnumerator GoogleSpreadSheetのデータを上書き更新するテスト()
         {
-            IDB<StubData> db = SteinhqDBFactory.Create<StubData>("https://api.steinhq.com/v1/storages/5d6093ecbb4eaf04c5eaa2b5", "test_data");
+            IDB<StubData> db = SteinDBFactory.Create<StubData>("https://api.steinhq.com/v1/storages/5d6093ecbb4eaf04c5eaa2b5", "test_data");
             var testData = new StubData("1", "dsgsss", "ssfddddd");
             yield return db.UpdateData("1",testData, (response) => {
                 Debug.Log(response);
             });
 
-            yield return null;
         }
 ```
 
 
-### SteinhqDBの指定データを消去する
+### GoogleSpreadSheetの指定データを消去する
 
 #### 構造
 ```C#
@@ -177,14 +188,13 @@ idで指定したレコードを消去できます。
 
 #### 使い方例
 ```C#
-        public IEnumerator SteinhqDBの指定データを消去する()
+        public IEnumerator GoogleSpreadSheetの指定データを消去する()
         {
-            IDB<StubData> db = SteinhqDBFactory.Create<StubData>("https://api.steinhq.com/v1/storages/5d6093ecbb4eaf04c5eaa2b5", "test_data");
+            IDB<StubData> db = SteinDBFactory.Create<StubData>("https://api.steinhq.com/v1/storages/5d6093ecbb4eaf04c5eaa2b5", "test_data");
             yield return db.DeleatData("1", (response) => {
                 Debug.Log(response);
             });
 
-            yield return null;
         }
 ```
 
