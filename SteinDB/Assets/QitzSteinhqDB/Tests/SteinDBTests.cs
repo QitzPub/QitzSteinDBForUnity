@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
-using Qitz.SteinhqDB;
+using Qitz.SteinDB;
 using System;
 
 namespace Tests
@@ -31,11 +31,11 @@ namespace Tests
 
     public class SteinDBTests
     {
-        IDB<StubData> db = SteinhqDBFactory.Create<StubData>("https://api.steinhq.com/v1/storages/5d6093ecbb4eaf04c5eaa2b5", "test_data");
+        IDB<StubData> db = SteinDBFactory.Create<StubData>("https://api.steinhq.com/v1/storages/5d6093ecbb4eaf04c5eaa2b5", "test_data");
         // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
         // `yield return null;` to skip a frame.
         [UnityTest]
-        public IEnumerator SteinhqDBからデータを取得するテスト()
+        public IEnumerator GoogleSpreadSheetからデータを取得するテスト()
         {
 
             yield return  db.GetData((data)=> {
@@ -46,38 +46,34 @@ namespace Tests
                 }
             });
 
-            yield return null;
         }
 
         [UnityTest]
-        public IEnumerator SteinhqDBにダミーデータをPostするテスト()
+        public IEnumerator GoogleSpreadSheetにダミーデータをPostするテスト()
         {
             var testData = new StubData("1","zzzzsss","gggsasa");
             yield return db.AddData(testData,(response)=> {
                 Debug.Log(response);
             });
 
-            yield return null;
         }
 
         [UnityTest]
-        public IEnumerator SteinhqDBにのデータを上書き更新するテスト()
+        public IEnumerator GoogleSpreadSheetデータ上書き更新テスト()
         {
             var testData = new StubData("1", "dsgsss", "ssfddddd");
             yield return db.UpdateData("1",testData, (response) => {
                 Debug.Log(response);
             });
 
-            yield return null;
         }
         [UnityTest]
-        public IEnumerator SteinhqDBの指定データを消去する()
+        public IEnumerator GoogleSpreadSheetの指定データを消去する()
         {
             yield return db.DeleatData("1", (response) => {
                 Debug.Log(response);
             });
 
-            yield return null;
         }
     }
 }

@@ -5,7 +5,7 @@ using System;
 using System.Linq;
 using UnityEngine.Networking;
 
-namespace Qitz.SteinhqDB
+namespace Qitz.SteinDB
 {
     public interface IDB<T> where T: AEntity
     {
@@ -23,7 +23,7 @@ namespace Qitz.SteinhqDB
         public string ID => id;
     }
 
-    public static class SteinhqDBFactory
+    public class SteinDBFactory
     {
         class SteinhqDB<T> : IDB<T> where T : AEntity
         {
